@@ -2,7 +2,53 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">GamifiedLearning - Aplikacja do nauki z elementami grywalizacji</h1>
+        <p class="lead text-muted">
+            GamifiedLearning to aplikacja webowa, która łączy interaktywne lekcje z systemem nagród,
+            punktów i poziomów. Dzięki temu nauka staje się przyjemniejsza, a postępy – łatwe do śledzenia.
+        </p>
+    </div>
+
+    <hr />
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h3>🛠 Funkcjonalności</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">🎯 Interaktywne lekcje i quizy</li>
+                <li class="list-group-item">🏆 System punktów, poziomów i odznak (badges)</li>
+                <li class="list-group-item">📈 Śledzenie postępów i statystyk w profilu użytkownika</li>
+                <li class="list-group-item">👥 Możliwość tworzenia grup i rywalizacji ze znajomymi</li>
+                <li class="list-group-item">🔒 Integracja z ASP.NET Core Identity (rejestracja, logowanie, role)</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <h3>🚀 Technologie i narzędzia</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">🔧 <strong>Backend:</strong> ASP.NET Core MVC 8.0</li>
+                <li class="list-group-item">💾 <strong>Baza danych:</strong> Entity Framework Core - InMemory</li>
+                <li class="list-group-item">🗂 <strong>Struktura projektu:</strong> Modułowa (lekcje, quizy, system punktów)</li>
+                <li class="list-group-item">🌐 <strong>Front-end:</strong> Bootstrap 5</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr />
+    <div class="text-center mt-4">
+        <a class="btn btn-primary btn-lg" asp-controller="Lesson" asp-action="Index">
+            🏫 Rozpocznij naukę
+        </a>
+    </div>
+
+    <div class="mt-5">
+        <h3>📌 Wymagania systemowe</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">✅ .NET SDK 8.0</li>
+            <li class="list-group-item">✅ Visual Studio 2022 (lub nowsze) / VS Code</li>
+        </ul>
+    </div>
 </div>
+
