@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamifiedLearning", "GamifiedLearning\GamifiedLearning.csproj", "{2AF6C55A-3E4B-4DD5-806C-5AE0675C12B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamifiedLearning.DLL", "GamifiedLearning.DLL\GamifiedLearning.DLL.csproj", "{1968A3B2-BF35-4B1E-8402-4D63055865C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamifiedLearning.BLL", "GamifiedLearning.BLL\GamifiedLearning.BLL.csproj", "{874E1C9A-ED1A-4FC3-AFD9-4FCB0ACB4EF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{2AF6C55A-3E4B-4DD5-806C-5AE0675C12B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AF6C55A-3E4B-4DD5-806C-5AE0675C12B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AF6C55A-3E4B-4DD5-806C-5AE0675C12B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1968A3B2-BF35-4B1E-8402-4D63055865C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1968A3B2-BF35-4B1E-8402-4D63055865C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1968A3B2-BF35-4B1E-8402-4D63055865C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1968A3B2-BF35-4B1E-8402-4D63055865C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{874E1C9A-ED1A-4FC3-AFD9-4FCB0ACB4EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{874E1C9A-ED1A-4FC3-AFD9-4FCB0ACB4EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{874E1C9A-ED1A-4FC3-AFD9-4FCB0ACB4EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{874E1C9A-ED1A-4FC3-AFD9-4FCB0ACB4EF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
