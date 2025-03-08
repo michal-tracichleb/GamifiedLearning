@@ -26,7 +26,9 @@ builder.Services.AddSession(options =>
 });
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services
+    .AddControllersWithViews()
+    .AddRazorRuntimeCompilation();
 
 builder.Services.AddRepositories();
 builder.Services.AddServices();
