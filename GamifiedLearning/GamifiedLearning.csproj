@@ -12,7 +12,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\GamifiedLearning.BLL\GamifiedLearning.BLL.csproj" />
-		<ProjectReference Include="..\GamifiedLearning.DLL\GamifiedLearning.DLL.csproj" />
+		<ProjectReference Include="..\GamifiedLearning.DLL\GamifiedLearning.DAL.csproj" />
 	</ItemGroup>
 
 </Project>
