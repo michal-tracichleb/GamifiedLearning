@@ -1,5 +1,6 @@
 using GamifiedLearning.BLL;
 using GamifiedLearning.DAL;
+using GamifiedLearning.DAL.Seeder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,6 +35,19 @@ builder.Services.AddRepositories();
 builder.Services.AddServices();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        Seeder.SeedData(services).Wait();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error during data initialization: {ex.Message}");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
