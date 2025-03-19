@@ -12,6 +12,7 @@ namespace GamifiedLearning.DAL
 
             services.AddScoped<IQuizRepository, QuizRepository>();
             services.AddScoped<ILessonRepository, LessonRepository>();
+            services.AddScoped<IUserProgressRepository, UserProgressRepository>();
         }
     }
 }
