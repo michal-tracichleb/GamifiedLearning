@@ -1,6 +1,7 @@
 using GamifiedLearning.BLL;
 using GamifiedLearning.DAL;
 using GamifiedLearning.DAL.Seeder;
+using GamifiedLearning.DAL.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<GamifiedLearningDBContext>(options =>
     options.UseInMemoryDatabase("GamifiedLearningDB"));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<GamifiedLearningDBContext>()
     .AddDefaultTokenProviders();
 

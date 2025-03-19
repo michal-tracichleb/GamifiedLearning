@@ -1,4 +1,5 @@
-﻿using GamifiedLearning.Models.Account;
+﻿using GamifiedLearning.DAL.Models;
+using GamifiedLearning.Models.Account;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,11 +7,11 @@ namespace GamifiedLearning.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager,
-                                 UserManager<IdentityUser> userManager)
+        public AccountController(SignInManager<User> signInManager,
+                                 UserManager<User> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -52,7 +53,7 @@ namespace GamifiedLearning.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+            var user = new User { UserName = model.Email, Email = model.Email };
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
