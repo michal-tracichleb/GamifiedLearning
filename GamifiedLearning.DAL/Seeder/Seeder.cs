@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using GamifiedLearning.DAL.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GamifiedLearning.DAL.Seeder
@@ -7,7 +8,7 @@ namespace GamifiedLearning.DAL.Seeder
     {
         public static async Task SeedData(IServiceProvider services)
         {
-            var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+            var userManager = services.GetRequiredService<UserManager<User>>();
             var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
             await SeedRolesAsync(roleManager);
@@ -16,7 +17,7 @@ namespace GamifiedLearning.DAL.Seeder
 
         private static async Task SeedRolesAsync(RoleManager<IdentityRole> roleManager)
         {
-            string[] roleNames = { "Admin", "User" };
+            string[] roleNames = { "User", "Admin" };
 
             foreach (var roleName in roleNames)
             {
@@ -40,18 +41,18 @@ namespace GamifiedLearning.DAL.Seeder
             }
         }
 
-        private static async Task SeedUserAsync(UserManager<IdentityUser> userManager)
+        private static async Task SeedUserAsync(UserManager<User> userManager)
         {
             await CreateUserIfNotExists(userManager, "user@example.com", "User123!", "User");
             await CreateUserIfNotExists(userManager, "admin@example.com", "Admin123!", "Admin");
         }
 
-        private static async Task CreateUserIfNotExists(UserManager<IdentityUser> userManager, string email, string password, string role)
+        private static async Task CreateUserIfNotExists(UserManager<User> userManager, string email, string password, string role)
         {
             var existingUser = await userManager.FindByEmailAsync(email);
             if (existingUser == null)
             {
-                var user = new IdentityUser
+                var user = new User
                 {
                     UserName = email,
                     Email = email,
