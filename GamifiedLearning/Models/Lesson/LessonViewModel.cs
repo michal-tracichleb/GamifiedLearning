@@ -1,4 +1,5 @@
 ﻿using GamifiedLearning.DAL.Models.Enums;
+using GamifiedLearning.Models.Quiz;
 using System.ComponentModel.DataAnnotations;
 
 namespace GamifiedLearning.Models.Lesson
@@ -19,5 +20,7 @@ namespace GamifiedLearning.Models.Lesson
         public int LessonNumber { get; set; }
 
         public string Content { get; set; }
+
+        public List<QuizViewModel> Quizzes { get; set; } = new List<QuizViewModel>();
     }
 }

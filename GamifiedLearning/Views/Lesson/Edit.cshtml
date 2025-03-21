@@ -37,6 +37,29 @@
         <textarea asp-for="Content" class="form-control"></textarea>
     </div>
 
+    <hr />
+
+    <h4>Quizy</h4>
+    <button type="button" class="btn btn-primary mb-2" id="addQuiz">Dodaj quiz</button>
+
+    <div id="quizContainer">
+        @for (int i = 0; i < Model.Quizzes.Count; i++)
+        {
+            <div class="quiz-item border p-3 mb-3">
+                <label>Pytanie:</label>
+                <input asp-for="Quizzes[i].Question" class="form-control" />
+
+                <label>Typ pytania:</label>
+                <select asp-for="Quizzes[i].Type" asp-items="Html.GetEnumSelectList<QuizType>()" class="form-control"></select>
+
+                <label>Odpowiedź:</label>
+                <input asp-for="Quizzes[i].Answer" class="form-control" />
+
+                <button type="button" class="btn btn-danger removeQuiz">Usuń</button>
+            </div>
+        }
+    </div>
+
     <button type="submit" class="btn btn-primary mt-3">Zapisz zmiany</button>
     <a asp-action="Index" class="btn btn-secondary mt-3">Anuluj</a>
 </form>
@@ -45,4 +68,47 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        document.getElementById("addQuiz").addEventListener("click", function () {
+            var container = document.getElementById("quizContainer");
+            var index = container.children.length;
+
+            var html = `
+                <div class="quiz-item border p-3 mb-3">
+                    <label>Pytanie:</label>
+                    <input name="Quizzes[\${index}].Question" class="form-control" placeholder="Wpisz pytanie">
+
+                    <label>Typ pytania:</label>
+                    <select name="Quizzes[\${index}].Type" class="form-control">
+                        <option value="SingleChoice">Jednokrotny wybór</option>
+                        <option value="MultipleChoice">Wielokrotny wybór</option>
+                        <option value="OpenAnswer">Otwarta odpowiedź</option>
+                    </select>
+
+                    <label>Odpowiedź:</label>
+                    <input name="Quizzes[\${index}].Answer" class="form-control" placeholder="Podaj odpowiedź">
+
+                    <button type="button" class="btn btn-danger removeQuiz">Usuń</button>
+                </div>`;
+
+            container.insertAdjacentHTML("beforeend", html);
+
+            // Dodaj event listener do nowego przycisku usuń
+            updateRemoveButtons();
+        });
+
+        function updateRemoveButtons() {
+            document.querySelectorAll(".removeQuiz").forEach(btn => {
+                btn.removeEventListener("click", removeQuiz);
+                btn.addEventListener("click", removeQuiz);
+            });
+        }
+
+        function removeQuiz(event) {
+            event.target.closest(".quiz-item").remove();
+        }
+
+        updateRemoveButtons();
+    </script>
 }

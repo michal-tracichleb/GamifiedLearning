@@ -1,14 +1,11 @@
 ﻿using GamifiedLearning.DAL.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace GamifiedLearning.DAL.Models
+namespace GamifiedLearning.Models.Quiz
 {
-    public class Quiz : IModelBase
+    public class QuizViewModel
     {
         public int Id { get; set; }
-
-        public int LessonId { get; set; }
-        public Lesson Lesson { get; set; }
 
         [Required]
         public string Question { get; set; }
@@ -18,6 +15,7 @@ namespace GamifiedLearning.DAL.Models
 
         public int Points { get; set; }
 
+        [Required]
         public QuizType Type { get; set; }
     }
 }
