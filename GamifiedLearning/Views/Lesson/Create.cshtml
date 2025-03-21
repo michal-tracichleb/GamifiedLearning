@@ -53,7 +53,7 @@
                 <label>Odpowiedź:</label>
                 <input asp-for="Quizzes[i].Answer" class="form-control" />
 
-                <button type="button" class="btn btn-danger removeQuiz">Usuń</button>
+                <button type="button" class="btn btn-danger mt-2 removeQuiz">Usuń</button>
             </div>
         }
     </div>
@@ -87,12 +87,10 @@
                     <label>Odpowiedź:</label>
                     <input name="Quizzes[\${index}].Answer" class="form-control" placeholder="Podaj odpowiedź">
 
-                    <button type="button" class="btn btn-danger removeQuiz">Usuń</button>
+                    <button type="button" class="btn btn-danger mt-2 removeQuiz">Usuń</button>
                 </div>`;
 
             container.insertAdjacentHTML("beforeend", html);
-
-            // Dodaj event listener do nowego przycisku usuń
             updateRemoveButtons();
         });
 

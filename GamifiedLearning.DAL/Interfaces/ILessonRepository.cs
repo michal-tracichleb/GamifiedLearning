@@ -6,5 +6,7 @@ namespace GamifiedLearning.DAL.Interfaces
     public interface ILessonRepository : IRepository<Lesson>
     {
         public Task<List<Lesson>> GetLessonsByDifficulty(DifficultyLevel level);
+
+        Task<Lesson?> GetWithQuizzesAsync(int id);
     }
 }
