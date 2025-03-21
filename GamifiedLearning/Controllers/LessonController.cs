@@ -69,17 +69,13 @@ namespace GamifiedLearning.Controllers
         public async Task<IActionResult> Edit(int id, LessonViewModel model)
         {
             if (id != model.Id)
-            {
                 return BadRequest();
-            }
 
             if (!ModelState.IsValid)
-            {
                 return View(model);
-            }
 
-            var lesson = _mapper.Map<Lesson>(model);
-            await _lessonService.UpdateLessonAsync(lesson);
+            var updatedLesson = _mapper.Map<Lesson>(model);
+            await _lessonService.UpdateLessonAsync(updatedLesson, model.DeletedQuizIds);
 
             return RedirectToAction(nameof(Index));
         }

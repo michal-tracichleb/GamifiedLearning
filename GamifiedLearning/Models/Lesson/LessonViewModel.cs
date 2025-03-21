@@ -22,5 +22,7 @@ namespace GamifiedLearning.Models.Lesson
         public string Content { get; set; }
 
         public List<QuizViewModel> Quizzes { get; set; } = new List<QuizViewModel>();
+
+        public List<int> DeletedQuizIds { get; set; } = new List<int>();
     }
 }

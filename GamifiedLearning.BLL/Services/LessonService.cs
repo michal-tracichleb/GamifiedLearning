@@ -28,10 +28,12 @@ namespace GamifiedLearning.BLL.Services
             return await _lessonRepository.GetWithQuizzesAsync(id);
         }
 
-        public async Task UpdateLessonAsync(Lesson lesson)
+        public async Task UpdateLessonAsync(Lesson lesson, List<int> deletedQuizIds)
         {
             var existing = await _lessonRepository.GetWithQuizzesAsync(lesson.Id);
             if (existing == null) return;
+
+            existing.Quizzes = existing.Quizzes.Where(q => !deletedQuizIds.Contains(q.Id)).ToList();
 
             existing.Title = lesson.Title;
             existing.Description = lesson.Description;
@@ -39,19 +41,12 @@ namespace GamifiedLearning.BLL.Services
             existing.Difficulty = lesson.Difficulty;
             existing.LessonNumber = lesson.LessonNumber;
 
-            var incomingIds = lesson.Quizzes.Select(q => q.Id).ToHashSet();
-
-            var quizzesToRemove = existing.Quizzes.Where(q => !incomingIds.Contains(q.Id)).ToList();
-            foreach (var q in quizzesToRemove)
-            {
-                existing.Quizzes.Remove(q);
-            }
-
             foreach (var quiz in lesson.Quizzes)
             {
+                if (deletedQuizIds.Contains(quiz.Id)) continue;
                 var existingQuiz = existing.Quizzes.FirstOrDefault(q => q.Id == quiz.Id);
 
-                if (existingQuiz != null)
+                if (quiz.Id != 0 && existingQuiz != null)
                 {
                     existingQuiz.Question = quiz.Question;
                     existingQuiz.Answer = quiz.Answer;

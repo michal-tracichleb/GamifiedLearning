@@ -10,7 +10,7 @@ namespace GamifiedLearning.BLL.Interfaces
 
         Task<Lesson> GetLessonByIdAsync(int id);
 
-        Task UpdateLessonAsync(Lesson lesson);
+        Task UpdateLessonAsync(Lesson lesson, List<int> deletedQuizIds);
 
         Task DeleteLessonAsync(int id);
     }

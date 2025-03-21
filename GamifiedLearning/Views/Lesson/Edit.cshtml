@@ -40,6 +40,9 @@
     <hr />
 
     <h4>Quizy</h4>
+
+    <div id="deletedQuizzesContainer"></div>
+
     <button type="button" class="btn btn-primary mb-2" id="addQuiz">Dodaj quiz</button>
 
     <div id="quizContainer">
@@ -108,7 +111,21 @@
         }
 
         function removeQuiz(event) {
-            event.target.closest(".quiz-item").remove();
+            const container = event.target.closest(".quiz-item");
+
+            const quizIdInput = container.querySelector("input[name*='Quizzes'][name$='.Id']");
+            const quizId = quizIdInput ? quizIdInput.value : "0";
+
+            if (quizId !== "0") {
+                const deletedContainer = document.getElementById("deletedQuizzesContainer");
+                const hiddenInput = document.createElement("input");
+                hiddenInput.type = "hidden";
+                hiddenInput.name = "DeletedQuizIds";
+                hiddenInput.value = quizId;
+                deletedContainer.appendChild(hiddenInput);
+            }
+
+            container.style.display = "none";
         }
 
         updateRemoveButtons();

@@ -44,6 +44,8 @@
         @for (int i = 0; i < Model.Quizzes.Count; i++)
         {
             <div class="quiz-item border p-3 mb-3">
+                <input type="hidden" asp-for="Quizzes[i].Id" />
+
                 <label>Pytanie:</label>
                 <input asp-for="Quizzes[i].Question" class="form-control" />
 
@@ -74,18 +76,20 @@
 
             var html = `
                 <div class="quiz-item border p-3 mb-3">
+                    <input type="hidden" name="Quizzes[${index}].Id" value="0" />
+
                     <label>Pytanie:</label>
-                    <input name="Quizzes[\${index}].Question" class="form-control" placeholder="Wpisz pytanie">
+                    <input name="Quizzes[${index}].Question" class="form-control" placeholder="Wpisz pytanie" />
 
                     <label>Typ pytania:</label>
-                    <select name="Quizzes[\${index}].Type" class="form-control">
+                    <select name="Quizzes[${index}].Type" class="form-control">
                         <option value="SingleChoice">Jednokrotny wybór</option>
                         <option value="MultipleChoice">Wielokrotny wybór</option>
                         <option value="OpenAnswer">Otwarta odpowiedź</option>
                     </select>
 
                     <label>Odpowiedź:</label>
-                    <input name="Quizzes[\${index}].Answer" class="form-control" placeholder="Podaj odpowiedź">
+                    <input name="Quizzes[${index}].Answer" class="form-control" placeholder="Podaj odpowiedź" />
 
                     <button type="button" class="btn btn-danger mt-2 removeQuiz">Usuń</button>
                 </div>`;
