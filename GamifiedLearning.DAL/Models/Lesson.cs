@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GamifiedLearning.DAL.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace GamifiedLearning.DAL.Models
 {
@@ -11,7 +12,10 @@ namespace GamifiedLearning.DAL.Models
 
         public string Description { get; set; }
 
-        public int Difficulty { get; set; }
+        [Required]
+        public DifficultyLevel Difficulty { get; set; }
+
+        public string Content { get; set; }
 
         public ICollection<Quiz> Quizzes { get; set; }
     }
