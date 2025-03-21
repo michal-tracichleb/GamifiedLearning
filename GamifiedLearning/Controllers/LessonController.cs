@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GamifiedLearning.BLL.Interfaces;
+using GamifiedLearning.DAL.Models;
 using GamifiedLearning.Models.Lesson;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,28 @@ namespace GamifiedLearning.Controllers
             var lessons = await _lessonService.GetAllLessonsAsync();
             var viewModel = _mapper.Map<ICollection<LessonViewModel>>(lessons);
             return View(viewModel);
+        }
+
+        // GET: Lesson/Create
+        public IActionResult Create()
+        {
+            return View(new LessonViewModel());
+        }
+
+        // POST: Lesson/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(LessonViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var lesson = _mapper.Map<Lesson>(model);
+            await _lessonService.AddLessonAsync(lesson);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

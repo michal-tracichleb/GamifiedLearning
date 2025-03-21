@@ -17,5 +17,10 @@ namespace GamifiedLearning.BLL.Services
         {
             return await _lessonRepository.GetAllAsync();
         }
+
+        public async Task AddLessonAsync(Lesson lesson)
+        {
+            await _lessonRepository.AddAsync(lesson);
+        }
     }
 }
