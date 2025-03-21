@@ -13,6 +13,9 @@ namespace GamifiedLearning.DAL.Models
         public string Description { get; set; }
 
         [Required]
+        public int LessonNumber { get; set; }
+
+        [Required]
         public DifficultyLevel Difficulty { get; set; }
 
         public string Content { get; set; }
