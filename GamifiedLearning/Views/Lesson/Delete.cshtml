@@ -1,0 +1,17 @@
+﻿@model GamifiedLearning.Models.Lesson.LessonViewModel
+
+@{
+    ViewData["Title"] = "Usuń lekcję";
+}
+
+<h2>@ViewData["Title"]</h2>
+<p class="text-danger">Czy na pewno chcesz usunąć tę lekcję?</p>
+
+<h4>@Model.Title</h4>
+<p>@Model.Description</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>

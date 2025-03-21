@@ -32,5 +32,14 @@ namespace GamifiedLearning.BLL.Services
         {
             await _lessonRepository.UpdateAsync(lesson);
         }
+
+        public async Task DeleteLessonAsync(int id)
+        {
+            var lesson = await _lessonRepository.GetAsync(id);
+            if (lesson != null)
+            {
+                await _lessonRepository.DeleteAsync(lesson);
+            }
+        }
     }
 }

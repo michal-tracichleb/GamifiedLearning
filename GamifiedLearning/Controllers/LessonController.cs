@@ -83,5 +83,27 @@ namespace GamifiedLearning.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        // GET: Lesson/Delete/5
+        public async Task<IActionResult> Delete(int id)
+        {
+            var lesson = await _lessonService.GetLessonByIdAsync(id);
+            if (lesson == null)
+            {
+                return NotFound();
+            }
+
+            var model = _mapper.Map<LessonViewModel>(lesson);
+            return View(model);
+        }
+
+        // POST: Lesson/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _lessonService.DeleteLessonAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
