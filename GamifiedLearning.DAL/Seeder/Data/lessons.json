@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Wprowadzenie do języka",
+    "description": "Podstawowe zwroty i alfabet",
+    "difficulty": "A1",
+    "lessonNumber": 1,
+    "content": "Cześć! Witaj w kursie A1. Nauczysz się podstawowych zwrotów..."
+  },
+  {
+    "title": "Przedstawianie się",
+    "description": "Jak się przedstawić i zapytać o imię",
+    "difficulty": "A1",
+    "lessonNumber": 2,
+    "content": "Mam na imię Anna. A Ty?"
+  },
+  {
+    "title": "Liczby i kolory",
+    "description": "Liczby 1-10 i podstawowe kolory",
+    "difficulty": "A1",
+    "lessonNumber": 3,
+    "content": "Jeden, dwa, trzy... czerwony, niebieski, zielony..."
+  },
+  {
+    "title": "Czasowniki regularne",
+    "description": "Podstawowe czasowniki i ich odmiana",
+    "difficulty": "A1",
+    "lessonNumber": 4,
+    "content": "Być, mieć, robić – uczymy się koniugacji."
+  },
+  {
+    "title": "Rodzina",
+    "description": "Jak mówić o rodzinie",
+    "difficulty": "A1",
+    "lessonNumber": 5,
+    "content": "Mama, tata, brat, siostra..."
+  },
+  {
+    "title": "Zakupy",
+    "description": "Słownictwo i zwroty zakupowe",
+    "difficulty": "A2",
+    "lessonNumber": 1,
+    "content": "Ile to kosztuje? Chciałbym kupić..."
+  },
+  {
+    "title": "Jedzenie",
+    "description": "Zamawianie posiłków i opisy smaków",
+    "difficulty": "A2",
+    "lessonNumber": 2,
+    "content": "Lubię pizzę i sok pomarańczowy."
+  },
+  {
+    "title": "Transport",
+    "description": "Jak zapytać o drogę, środki transportu",
+    "difficulty": "A2",
+    "lessonNumber": 3,
+    "content": "Gdzie jest przystanek autobusowy?"
+  },
+  {
+    "title": "Podstawowe wyrażenia w pracy",
+    "description": "Zwroty używane w środowisku pracy",
+    "difficulty": "B1",
+    "lessonNumber": 1,
+    "content": "Spotkanie, prezentacja, deadline..."
+  }
+]
