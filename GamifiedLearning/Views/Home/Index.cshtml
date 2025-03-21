@@ -1,5 +1,12 @@
-﻿@{
+﻿@using GamifiedLearning.DAL.Models;
+@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+@inject UserManager<User> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+
+@{
     ViewData["Title"] = "Home Page";
+    var isAdmin = User.IsInRole("Admin");
 }
 
 <div class="container mt-5">
@@ -41,6 +48,13 @@
         <a class="btn btn-primary btn-lg" asp-controller="Lesson" asp-action="Index">
             🏫 Rozpocznij naukę
         </a>
+
+        @if (isAdmin)
+        {
+            <a class="btn btn-outline-dark btn-lg ms-3" asp-controller="Lesson" asp-action="Index">
+                🎓 Zarządzaj lekcjami
+            </a>
+        }
     </div>
 
     <div class="mt-5">
@@ -51,4 +65,3 @@
         </ul>
     </div>
 </div>
-

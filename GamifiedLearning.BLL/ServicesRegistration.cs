@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GamifiedLearning.BLL.Interfaces;
+using GamifiedLearning.BLL.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GamifiedLearning.BLL
 {
@@ -6,6 +8,7 @@ namespace GamifiedLearning.BLL
     {
         public static void AddServices(this IServiceCollection services)
         {
+            services.AddScoped<ILessonService, LessonService>();
         }
     }
 }

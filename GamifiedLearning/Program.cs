@@ -1,7 +1,7 @@
 using GamifiedLearning.BLL;
 using GamifiedLearning.DAL;
-using GamifiedLearning.DAL.Seeder;
 using GamifiedLearning.DAL.Models;
+using GamifiedLearning.DAL.Seeder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,6 +34,8 @@ builder.Services
 
 builder.Services.AddRepositories();
 builder.Services.AddServices();
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

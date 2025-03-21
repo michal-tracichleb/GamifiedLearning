@@ -1,0 +1,42 @@
+﻿@using GamifiedLearning.Models.Lesson
+@model ICollection<LessonViewModel>
+
+@{
+    ViewData["Title"] = "Zarządzaj lekcjami";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">➕ Dodaj nową lekcję</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Brak lekcji do wyświetlenia.</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tytuł</th>
+                <th>Poziom</th>
+                <th>Nr lekcji</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lesson in Model)
+            {
+                <tr>
+                    <td>@lesson.Title</td>
+                    <td>@lesson.Difficulty</td>
+                    <td>@lesson.LessonNumber</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@lesson.Id" class="btn btn-sm btn-warning">Edytuj</a>
+                        <a asp-action="Delete" asp-route-id="@lesson.Id" class="btn btn-sm btn-danger">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
