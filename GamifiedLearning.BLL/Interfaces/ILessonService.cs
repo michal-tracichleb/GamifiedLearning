@@ -7,5 +7,9 @@ namespace GamifiedLearning.BLL.Interfaces
         Task<ICollection<Lesson>> GetAllLessonsAsync();
 
         Task AddLessonAsync(Lesson lesson);
+
+        Task<Lesson> GetLessonByIdAsync(int id);
+
+        Task UpdateLessonAsync(Lesson lesson);
     }
 }

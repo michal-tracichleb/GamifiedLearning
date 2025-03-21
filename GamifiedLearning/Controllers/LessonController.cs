@@ -49,5 +49,39 @@ namespace GamifiedLearning.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        // GET: Lesson/Edit/5
+        public async Task<IActionResult> Edit(int id)
+        {
+            var lesson = await _lessonService.GetLessonByIdAsync(id);
+            if (lesson == null)
+            {
+                return NotFound();
+            }
+
+            var model = _mapper.Map<LessonViewModel>(lesson);
+            return View(model);
+        }
+
+        // POST: Lesson/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, LessonViewModel model)
+        {
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var lesson = _mapper.Map<Lesson>(model);
+            await _lessonService.UpdateLessonAsync(lesson);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
